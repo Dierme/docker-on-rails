@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db-rails:
+    tty: true
+    image: postgres:10
+    volumes:
+      - ./db-rails/:/var/lib/postgresql/data
+    ports:
+      - "5445:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=SUPER_SECRET_PASSWORD
+
+  web-rails:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "1339:3000"
+    depends_on:
+      - db-rails
