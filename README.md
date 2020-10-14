@@ -1,24 +1,14 @@
-# README
+# Desctiption
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo of ruby on rails project running inside a docker container.
 
-Things you may want to cover:
+## Installation
+Clone the project.
 
-* Ruby version
+Build and start the project. Create the DB
+```
+$ docker-compose up --build
+$ docker-compose exec web-rails rake db:create
+```
+Go to https://localhost:1339
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
